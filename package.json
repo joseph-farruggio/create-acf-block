@@ -1,6 +1,6 @@
 {
   "name": "joey",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A CLI to get to know Joey Farruggio",
   "bin": {
     "joey": "index.js"
