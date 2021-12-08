@@ -1,0 +1,12 @@
+{
+  "name": "joey",
+  "version": "1.0.1",
+  "description": "A CLI to get to know Joey Farruggio",
+  "bin": {
+    "joey": "index.js"
+  },
+  "dependencies": {
+    "clear-any-console": "^1.16.2",
+    "cli-welcome": "^2.2.2"
+  }
+}
