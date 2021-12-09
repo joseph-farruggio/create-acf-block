@@ -2,6 +2,9 @@
 
 > Register and scaffold your ACF blocks through a CLI
 
+## What this CLI does
+The `create-acf-block` CLI both registers your block within the acf_register_block_type() function and scaffolds a block render template.
+
 ## Usage
 
 - Run `npm i create-acf-block`
