@@ -1,12 +1,30 @@
 {
-  "name": "joey",
+  "name": "create-acf-block",
   "version": "1.0.2",
-  "description": "A CLI to get to know Joey Farruggio",
+  "description": "A CLI to get scaffold an ACF block.",
   "bin": {
-    "joey": "index.js"
+    "create-acf-block": "index.js"
   },
   "dependencies": {
-    "clear-any-console": "^1.16.2",
-    "cli-welcome": "^2.2.2"
+    "chalk": "^5.0.0",
+    "cli-welcome": "^2.2.2",
+    "readline-sync": "^1.4.10",
+    "replace-in-file": "^6.3.2"
+  },
+  "keywords": [
+    "ACF",
+    "Create ACF Blocks",
+    "ACF Blocks",
+    "Joey Farruggio",
+    "Joey",
+    "Farruggio"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "joseph-farruggio/create-acf-block",
+  "author": {
+    "name": "Joey Farruggio",
+    "email": "joey@joeyfarruggio.com",
+    "url": "https://twitter.com/Joey_Farruggio"
   }
 }
