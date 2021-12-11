@@ -1,4 +1,5 @@
-const acfConfig = require('../acf-block.config.js');
+const appDir = path.dirname(require.main.filename);
+const acfConfig = require(appDir+'/acf-block.config.js');
 const fs = require('fs');
 
 module.exports = (responses) => {
