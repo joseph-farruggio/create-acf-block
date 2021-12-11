@@ -37,7 +37,7 @@ function register_my_blocks() {
     // End Create-ACF-Block
 
     // ... Other blocks you might have registered manually
-}
+  }
 }
 ```
 
