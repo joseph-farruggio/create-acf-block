@@ -1,4 +1,4 @@
-# `Create ACF Bock`
+# `Create ACF Block`
 
 > Register and scaffold your ACF blocks through a CLI
 
