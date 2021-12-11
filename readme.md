@@ -31,13 +31,13 @@ Example:
 ``` php
 function register_my_blocks() {
 
-	// check function exists
-	if( function_exists('acf_register_block_type') ) {
+  // check function exists
+  if( function_exists('acf_register_block_type') ) {
     // Begin Create-ACF-Block
     // End Create-ACF-Block
 
-    ... Other blocks you might have registered manually
-  }
+    // ... Other blocks you might have registered manually
+}
 }
 ```
 
