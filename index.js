@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 const fs = require('fs');
-const acfConfig = require('./acf-block.config.js');
 const initPrompts = require('./utilis/prompts');
-const registerBlocks = require('./utilis/registerBlocks');
 const createRenderTemplate = require('./utilis/createRenderTemplate');
+const registerBlocks = require('./utilis/registerBlocks');
+const path = require('path');
+const appDir = path.dirname(require.main.filename);
+const acfConfig = require(appDir+'/acf-block.config.js');
 
 (async () => {
 
