@@ -31,7 +31,7 @@ const createRenderTemplate = require('./utilis/createRenderTemplate');
           console.log(err);
         }
         if(data.includes('// End Create-ACF-Block') === false){
-            regect(`Please add the comment markers to your registration file where you want to register future blocks:\n` +
+            regect(`Please add these comment markers to your registration file where you want to register future blocks:\n` +
             `// Begin Create-ACF-Block\n`+
             `// End Create-ACF-Block`);
         }
@@ -40,19 +40,17 @@ const createRenderTemplate = require('./utilis/createRenderTemplate');
     });
   }
 
-  checkRegistrationFile(acfConfig.registeration_file_path)
-    .then(() => {
-      checkCommentMarkers()
-      .then(() => {
-        let responses = initPrompts();
-        registerBlocks(responses);
-        createRenderTemplate(responses);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-    })
-    .catch(err => {
-      console.log(err);
-    });
+  function handleError(err) {
+    console.log(err);
+  }
+
+  async function init() {
+    await checkRegistrationFile(acfConfig.registeration_file_path);
+    await checkCommentMarkers();
+    let responses = initPrompts();
+    registerBlocks(responses);
+    createRenderTemplate(responses);
+  }
+
+  init().catch(handleError);
 })();
