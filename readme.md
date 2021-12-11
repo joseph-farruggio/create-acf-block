@@ -18,4 +18,12 @@ module.exports = {
 ```
 
 - Update the `registeration_file_path` and `render_template_folder_path` values to match your folder structure.
+
+- Add these comments as markers in your block registration file. The CLI will register blocks only between these two comments.
+
+```
+// Begin Create-ACF-Block
+// End Create-ACF-Block
+```
+
 - Run `create-acf-block` to use the CLI
