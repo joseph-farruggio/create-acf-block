@@ -19,9 +19,7 @@ module.exports = (response) => {
       'mode'				=> '${response.mode}',
       'align'       => '${response.align}',
       'supports'	=> array(
-        'anchor' => true,
-        'mode' => false,
-        'jsx' => true
+        'anchor' => true
       ),
       'render_template'   => '${acfConfig.render_template_folder_path}/${response.name}.php',
     ));
