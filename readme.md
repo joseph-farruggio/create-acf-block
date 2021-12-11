@@ -12,7 +12,7 @@ The `create-acf-block` CLI both registers your block within the acf_register_blo
 
 ```
 module.exports = {
-  register_file_path: './inc/acf-blocks.php',
+  registeration_file_path: './inc/acf-blocks.php',
   render_template_folder_path: './blocks'
 }
 ```
