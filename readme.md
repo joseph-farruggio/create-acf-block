@@ -17,5 +17,5 @@ module.exports = {
 }
 ```
 
-- Update the `register_file_path` and `render_template_folder_path` values to match your folder structure.
+- Update the `registeration_file_path` and `render_template_folder_path` values to match your folder structure.
 - Run `create-acf-block` to use the CLI
