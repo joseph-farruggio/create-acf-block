@@ -1,5 +1,4 @@
-const path = require('path');
-const appDir = path.dirname(require.main.filename);
+const appDir = process.cwd();
 const acfConfig = require(appDir+'/acf-block.config.js');
 const fs = require('fs');
 
