@@ -1,7 +1,7 @@
 {
   "name": "create-acf-block",
-  "version": "0.0.2",
-  "description": "A CLI to get scaffold an ACF block.",
+  "version": "0.0.3",
+  "description": "A CLI to register and scaffold an ACF block.",
   "bin": {
     "create-acf-block": "index.js"
   },
