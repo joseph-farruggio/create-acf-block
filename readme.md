@@ -3,23 +3,13 @@
 > Register and scaffold your ACF blocks through a CLI
 
 ## What this CLI does
-The `create-acf-block` CLI both registers your block within the acf_register_block_type() function and scaffolds a block render template.
+The `create-acf-block` CLI registers your block within the acf_register_block_type() function, scaffolds a block render template, and optionally preps CSS and JS..
 
 ### Usage
 ---
 1. Run `npm i create-acf-block`
-2. Create an acf-block.config.js in your project's root directory
 
-``` js
-module.exports = {
-  registeration_file_path: './inc/acf-blocks.php',
-  render_template_folder_path: './blocks'
-}
-```
-
-3. Update the `registeration_file_path` and `render_template_folder_path` values to match your folder structure.
-
-4. Add these comments as markers in your block registration file. The CLI will register blocks only between these two comments.
+2. Add these comments as markers in your block registration file. The CLI will register blocks only between these two comments.
 
 ``` php
 // Begin Create-ACF-Block
@@ -41,7 +31,7 @@ function register_my_blocks() {
 }
 ```
 
-5. Run `create-acf-block` from your project's root direactory to use the CLI.
+3. Run `create-acf-block` from your project's root direactory to use the CLI.
 
 ### Preferences
 ---
