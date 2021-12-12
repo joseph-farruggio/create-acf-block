@@ -84,6 +84,31 @@ If yes, your blocks will look something like:
       │   block.php
 ```
 
-### Flags
+### General Flags
 ___
 `--preferences` - Clear your preferences and set them again.
+
+
+### Block Detail Flags 
+___
+When block flags are used, you will only be prompted to provide details for those flags.
+Note: `name` and `title` fields are required and will always be included in prompts.
+
+`--simple`  
+*Only prompts for the block name and title*
+
+`--description`  
+*The block description*
+
+`--category`  
+*The block category as seen in the editor*
+
+`--mode`  
+*The default mode: [edit/view]*
+
+`--align`  
+*The default block aligment*
+
+`--jsx`  
+*Whether the block will use innerBlocks*  
+
