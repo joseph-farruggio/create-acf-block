@@ -4,6 +4,7 @@ const config = new Conf();
 
 module.exports = (response) => {
   // Find and Replace options
+  const jsx = (response.jsx) ? `'jsx' => true,` : '';
   const options = {
 
     //Single file
@@ -20,7 +21,8 @@ module.exports = (response) => {
       'mode'				=> '${response.mode}',
       'align'       => '${response.align}',
       'supports'	=> array(
-        'anchor' => true
+        'anchor' => true,
+        ${jsx}
       ),
       'render_template'   => '${config.get('renderTemplateFolderPath')}/${response.name}.php',
     ));

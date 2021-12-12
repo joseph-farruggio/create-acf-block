@@ -12,6 +12,16 @@ function writeFile(path, contents, cb) {
 }
 
 module.exports = (responses) => {
+  // Optional JSX
+  const innerBlocks = (responses.jsx) ? `<InnerBlocks allowedBlocks="' . esc_attr( wp_json_encode( $allowed_blocks ) ) . '" template="' . esc_attr( wp_json_encode( $template ) ) . '"/>'` : '';
+  const props = (responses.jsx) ? 
+    `$allowed_blocks = array( 'core/image', 'core/paragraph' );
+    $template = array(
+      array( 'core/paragraph', array(
+        'placeholder' => 'Add a root-level paragraph',
+      ) 
+    ));` : '';
+
   // Block render template content
   const renderTemplateContent = `
   <?php
@@ -31,7 +41,7 @@ module.exports = (responses) => {
   ?>
   
   <div id="<?php echo $block_id; ?>" class="<?php echo $blockClasses; ?>">
-    
+    ${innerBlocks}
   </div>
   `;
 

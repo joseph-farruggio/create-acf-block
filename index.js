@@ -6,28 +6,43 @@ const schema = {
   preferencesSet: {
     type: 'boolean'
   },
+  hasFlags: {
+    type: 'boolean',
+    default: false
+  },
   registerationFilePath: {
-    type: 'string'
+    type: 'string',
+    default: ''
   },
   renderTemplateFolderPath: {
-    type: 'string'
+    type: 'string',
+    default: ''
   },
   createAssets: {
-    type: 'string'
+    type: 'boolean'
   },
   groupAssets: {
     type: 'boolean'
   },
   cssPath: {
-    type: 'string'
+    type: 'string',
+    default: ''
   },
   jsPath: {
-    type: 'string'
+    type: 'string',
+    default: ''
   }
 }
 const config = new Conf({schema});
 
-// Utilities
+/**  
+ * Utilities
+ * 1. Preferences - Only runs during the first use of the CLI, unless the --preference flag is present
+ * 2. Prompts - All of the questions to populate the render template and register the block
+ * 3. Creates the render template
+ * 4. Registers the block
+ * 5. Optionally creates CSS and JS
+ * */
 const preferences = require('./utilis/preferences');
 const prompts = require('./utilis/prompts');
 const createRenderTemplate = require('./utilis/createRenderTemplate');
@@ -74,10 +89,13 @@ const createAssets = require('./utilis/createAssets');
   }
 
   async function init() {
+  
     preferences();
     await checkRegistrationFile(config.get('registerationFilePath'));
     await checkCommentMarkers(config.get('registerationFilePath'));
-    let responses = prompts();
+    
+    let = responses = prompts(config.hasFlags);
+    
     registerBlocks(responses);
     createRenderTemplate(responses);
     createAssets(responses);
