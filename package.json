@@ -1,12 +1,14 @@
 {
   "name": "create-acf-block",
-  "version": "0.3.9",
+  "version": "0.4.0",
   "description": "A CLI to register and scaffold an ACF block.",
   "bin": {
     "create-acf-block": "index.js"
   },
   "dependencies": {
     "chalk": "^5.0.0",
+    "conf": "^10.1.1",
+    "log-symbols": "^5.1.0",
     "readline-sync": "^1.4.10",
     "replace-in-file": "^6.3.2"
   },

@@ -1,17 +1,18 @@
-const acfConfig = require('../acf-block.config.js');
 const replace = require('replace-in-file');
+const Conf = require('conf');
+const config = new Conf();
 
 module.exports = (response) => {
   // Find and Replace options
   const options = {
 
     //Single file
-    files: `${acfConfig.registeration_file_path}`,
+    files: `${config.get('registerationFilePath')}`,
   
     //Replacement to make (string or regex) 
     from: "// End Create-ACF-Block",
-    to: `
-    acf_register_block_type(array(
+    to: 
+    `acf_register_block_type(array(
       'name'				=> '${response.name}',
       'title'				=> '${response.title}',
       'description' => '${response.description}',
@@ -21,10 +22,9 @@ module.exports = (response) => {
       'supports'	=> array(
         'anchor' => true
       ),
-      'render_template'   => '${acfConfig.render_template_folder_path}/${response.name}.php',
+      'render_template'   => '${config.get('renderTemplateFolderPath')}/${response.name}.php',
     ));
-    // End Create-ACF-Block
-    `,
+    // End Create-ACF-Block`,
   };
 
   replace(options)

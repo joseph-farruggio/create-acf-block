@@ -1,14 +1,41 @@
 #!/usr/bin/env node
 const fs = require('fs');
-const initPrompts = require('./utilis/prompts');
+const Conf = require('conf');
+
+const schema = {
+  preferencesSet: {
+    type: 'boolean'
+  },
+  registerationFilePath: {
+    type: 'string'
+  },
+  renderTemplateFolderPath: {
+    type: 'string'
+  },
+  createAssets: {
+    type: 'string'
+  },
+  groupAssets: {
+    type: 'boolean'
+  },
+  cssPath: {
+    type: 'string'
+  },
+  jsPath: {
+    type: 'string'
+  }
+}
+const config = new Conf({schema});
+
+// Utilities
+const preferences = require('./utilis/preferences');
+const prompts = require('./utilis/prompts');
 const createRenderTemplate = require('./utilis/createRenderTemplate');
 const registerBlocks = require('./utilis/registerBlocks');
-const path = require('path');
-const appDir = path.dirname(require.main.filename);
-const acfConfig = require(appDir+'/acf-block.config.js');
+const createAssets = require('./utilis/createAssets');
 
 (async () => {
-
+  
   /**
    *  1. Check if registration file exists
    *  2. Check if registration file has comment markers
@@ -26,9 +53,9 @@ const acfConfig = require(appDir+'/acf-block.config.js');
     });
   }
 
-  function checkCommentMarkers() {
+  function checkCommentMarkers(path) {
     return new Promise(function(resolve, regect) {
-      fs.readFile(acfConfig.registeration_file_path, function (err, data) {
+      fs.readFile(path, function (err, data) {
         if (err) {
           console.log(err);
         }
@@ -47,11 +74,13 @@ const acfConfig = require(appDir+'/acf-block.config.js');
   }
 
   async function init() {
-    await checkRegistrationFile(acfConfig.registeration_file_path);
-    await checkCommentMarkers();
-    let responses = initPrompts();
+    preferences();
+    await checkRegistrationFile(config.get('registerationFilePath'));
+    await checkCommentMarkers(config.get('registerationFilePath'));
+    let responses = prompts();
     registerBlocks(responses);
     createRenderTemplate(responses);
+    createAssets(responses);
   }
 
   init().catch(handleError);
