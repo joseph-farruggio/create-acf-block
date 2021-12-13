@@ -3,7 +3,7 @@
 > Register and scaffold your ACF blocks through a CLI
 
 ## What this CLI does
-The `create-acf-block` CLI registers your block within the acf_register_block_type() function, scaffolds a block render template, and optionally preps CSS and JS..
+The `create-acf-block` CLI registers your block within the acf_register_block_type() function, scaffolds a block render template, and optionally preps CSS and JS.
 
 ### Usage
 ---
@@ -31,23 +31,23 @@ function register_my_blocks() {
 }
 ```
 
-3. Run `create-acf-block` from your project's root direactory to use the CLI.
+3. Run `create-acf-block`
 
 ### Preferences
 ---
 When you first run the CLI, you'll set some basic preferences:
 
-`registerationFilePath`  
+**Block registration file path**  
 The path to our ACF block registration file (where your *acf_register_block_type()* functions live.)
 
-`renderTemplateFolderPath`  
+**Render template folder path**  
 The path to the folder where your ACF block render templates live.
 
-`createAssets`  
+**Create block specific CSS and JS files**  
 Whether the CLI should scaffold CSS and JS files for your blocks.
 
-`groupAssets`  
-Whether the CLI should place your CS and JS files in the same directory as your render.
+**Group block CSS and JS files with the render template**
+Whether the CLI should place your CS and JS files in the same directory as your render template.
 
 If no, your blocks will look something like:
 ```
@@ -63,13 +63,7 @@ If no, your blocks will look something like:
 │   quote.js
 ```
 
-`cssPath`  
-The path to your CSS directory.
-
-`jsPath`  
-The path to your JS directory.
-
-If yes, your blocks will look something like:
+If yes, you'll provide the paths to your CSS and JS directories and your blocks will look something like:
 
 ```
 ./blocks
