@@ -31,7 +31,7 @@ export default (response) => {
 
   replace(options)
     .then(changedFiles => {
-      console.log('Modified files:', changedFiles.join(', '));
+      // console.log('Modified files:', changedFiles.join(', '));
     })
     .catch(error => {
       console.error('Error occurred:', error);

@@ -1,11 +1,13 @@
 import fs from 'fs';
 import Conf from 'conf';
 const config = new Conf();
-import getDirName from 'path';
+import Path from 'path';
 
 function writeFile(path, contents, cb) {
-  fs.mkdir(getDirName(path).dirname, { recursive: true}, function (err) {
-    if (err) return cb(err);
+  fs.mkdir(Path.dirname(path), { recursive: true}, function (err) {
+    if (err) {
+      return cb(err);
+    }
 
     fs.writeFile(path, contents, cb);
   });
@@ -53,10 +55,16 @@ export default (responses) => {
   if (config.get('groupAssets') === true) {
     writeFile(`${config.get('renderTemplateFolderPath')}/${responses.name}/block.php`, 
       renderTemplateContent, 
-      err => { console.log(err); });
+      function (err)  { 
+        if (err) throw err;
+      }
+    );
   } else {
     writeFile(`${config.get('renderTemplateFolderPath')}/${responses.name}.php`, 
       renderTemplateContent, 
-      err => { console.log(err); });
+      function (err)  { 
+        if (err) throw err;
+      }
+    );
   }
 }
