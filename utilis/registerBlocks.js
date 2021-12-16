@@ -2,7 +2,7 @@ import replace from 'replace-in-file';
 import Conf from 'conf';
 const config = new Conf();
 
-export default (responses) => {
+export default (response) => {
   // Find and Replace options
   const jsx = (response.jsx) ? `'jsx' => true,` : '';
   const options = {
