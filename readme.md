@@ -100,7 +100,7 @@ Note: `name` and `title` fields are required and will always be included in prom
 *The block category as seen in the editor*
 
 `--mode`  
-*The default mode: [edit/view]*
+*The default mode: [edit/preview/auto]*
 
 `--align`  
 *The default block aligment*
