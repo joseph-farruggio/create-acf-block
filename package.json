@@ -29,5 +29,6 @@
     "name": "Joey Farruggio",
     "email": "joey@joeyfarruggio.com",
     "url": "https://twitter.com/Joey_Farruggio"
-  }
+  },
+  "type": "module"
 }

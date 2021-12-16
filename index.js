@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-const fs = require('fs');
-const Conf = require('conf');
+import fs from 'fs';
+import Conf from 'conf';
 
 const schema = {
   preferencesSet: {
@@ -43,11 +43,11 @@ const config = new Conf({schema});
  * 4. Registers the block
  * 5. Optionally creates CSS and JS
  * */
-const preferences = require('./utilis/preferences');
-const prompts = require('./utilis/prompts');
-const createRenderTemplate = require('./utilis/createRenderTemplate');
-const registerBlocks = require('./utilis/registerBlocks');
-const createAssets = require('./utilis/createAssets');
+import preferences from './utilis/preferences.js';
+import prompts from './utilis/prompts.js';
+import createRenderTemplate from './utilis/createRenderTemplate.js';
+import registerBlocks from './utilis/registerBlocks.js';
+import createAssets from './utilis/createAssets.js';
 
 (async () => {
   
@@ -94,7 +94,7 @@ const createAssets = require('./utilis/createAssets');
     await checkRegistrationFile(config.get('registerationFilePath'));
     await checkCommentMarkers(config.get('registerationFilePath'));
     
-    let = responses = prompts(config.hasFlags);
+    let responses = prompts(config.hasFlags);
     
     registerBlocks(responses);
     createRenderTemplate(responses);

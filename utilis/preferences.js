@@ -1,12 +1,12 @@
-const Conf = require('conf');
+import Conf from 'conf';
 const config = new Conf();
-const readlineSync = require('readline-sync');
-const { default: chalk } = require('chalk');
+import readlineSync from 'readline-sync';
+import chalk from 'chalk';
 
 const args = process.argv.slice(2);
 const resetPreferences = (args.indexOf('--preferences') === -1) ? false : true;
 
-module.exports = () => {
+export default () => {
   /**
    *  Preferences
    *  Create block assets?

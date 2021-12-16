@@ -1,8 +1,8 @@
-const readlineSync = require('readline-sync');
-const { default: chalk } = require('chalk');
+import readlineSync from 'readline-sync';
+import chalk from 'chalk';
 const args = process.argv.slice(2);
 
-module.exports = () => {
+export default () => {
     /** 
      * If no args, show all prompts. 
      * Otherwise only show required prompts and prompts for present flags

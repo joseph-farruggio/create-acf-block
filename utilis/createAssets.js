@@ -1,9 +1,8 @@
-const fs = require('fs');
-const Conf = require('conf');
+import fs from 'fs';
+import Conf from 'conf';
 const config = new Conf();
-const getDirName = require('path').dirname;
 
-module.exports = (responses) => {
+export default (responses) => {
 
   if (config.get('createAssets') === true) {
     if (config.get('groupAssets') === true) {

@@ -1,8 +1,8 @@
-const replace = require('replace-in-file');
-const Conf = require('conf');
+import replace from 'replace-in-file';
+import Conf from 'conf';
 const config = new Conf();
 
-module.exports = (response) => {
+export default (responses) => {
   // Find and Replace options
   const jsx = (response.jsx) ? `'jsx' => true,` : '';
   const options = {

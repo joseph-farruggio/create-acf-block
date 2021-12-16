@@ -1,17 +1,17 @@
-const fs = require('fs');
-const Conf = require('conf');
+import fs from 'fs';
+import Conf from 'conf';
 const config = new Conf();
-const getDirName = require('path').dirname;
+import getDirName from 'path';
 
 function writeFile(path, contents, cb) {
-  fs.mkdir(getDirName(path), { recursive: true}, function (err) {
+  fs.mkdir(getDirName(path).dirname, { recursive: true}, function (err) {
     if (err) return cb(err);
 
     fs.writeFile(path, contents, cb);
   });
 }
 
-module.exports = (responses) => {
+export default (responses) => {
   // Optional JSX
   const innerBlocks = (responses.jsx) ? `<InnerBlocks allowedBlocks="' . esc_attr( wp_json_encode( $allowed_blocks ) ) . '" template="' . esc_attr( wp_json_encode( $template ) ) . '"/>'` : '';
   const props = (responses.jsx) ? 
