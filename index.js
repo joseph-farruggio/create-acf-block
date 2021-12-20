@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import fs from 'fs';
+import path from 'path';
 import Conf from 'conf';
+import appRoot from 'app-root-path';
 
 const schema = {
   preferencesSet: {

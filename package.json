@@ -6,6 +6,7 @@
     "create-acf-block": "index.js"
   },
   "dependencies": {
+    "app-root-path": "^3.0.0",
     "chalk": "^5.0.0",
     "conf": "^10.1.1",
     "log-symbols": "^5.1.0",

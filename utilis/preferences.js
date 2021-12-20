@@ -2,6 +2,7 @@ import Conf from 'conf';
 const config = new Conf();
 import readlineSync from 'readline-sync';
 import chalk from 'chalk';
+import path from 'path';
 
 const args = process.argv.slice(2);
 const resetPreferences = (args.indexOf('--preferences') === -1) ? false : true;
@@ -22,22 +23,28 @@ export default () => {
     console.log(chalk.bold.bgGreen.white(` Preferences: \n`));
 
     config.set('registerationFilePath', 
-      readlineSync.questionPath(
-        `${chalk.bold('Block registration file path:')}\n` +
-        `${chalk.dim('You can "cd" and "pwd"')}\n`, {
-        isDirectory: false,
-        exists: true,
-      })
+      path.relative( 
+        './',  
+        readlineSync.questionPath(
+          `${chalk.bold('Relative block registration file path:')}\n` +
+          `${chalk.dim('Example: inc/acf-blocks.php"')}\n`, {
+          isDirectory: false,
+          exists: true,
+        })
+      )
     );
 
     config.set('renderTemplateFolderPath', 
-      readlineSync.questionPath(
-        `${chalk.bold('\nBlock render template folder path: \n')}` +
-        `${chalk.dim('This is where your block render templates will be created.\n')}` +
-        `${chalk.dim('You can "cd" and "pwd"')}\n`, {
-        isDirectory: true,
-        exists: true,
-      })
+      path.relative( 
+        './',  
+        readlineSync.questionPath(
+          `${chalk.bold('\nRelative block render template folder path: \n')}` +
+          `${chalk.dim('This is where your block render templates will be created.\n')}` +
+          `${chalk.dim('Example: template-parts/blocks"')}\n`, {
+          isDirectory: true,
+          exists: true,
+        })
+      )
     );
 
     // Create block assets?
