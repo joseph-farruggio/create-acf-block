@@ -7,7 +7,7 @@ The `create-acf-block` CLI registers your block within the acf_register_block_ty
 
 ### Usage
 ---
-1. Run `npm i -g create-acf-block`
+1. Run `npm i --save-dev create-acf-block`
 
 2. Add these comments as markers in your block registration file. The CLI will register blocks only between these two comments.
 
