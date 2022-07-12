@@ -36,7 +36,7 @@ function register_my_blocks() {
 }
 ```
 
-3. Run `create-acf-block`
+3. Run `npx create-acf-block`
 
 ### Preferences
 
@@ -81,11 +81,11 @@ If yes, you'll provide the paths to your CSS and JS directories and your blocks 
 └───hero
 │    │   block.php
 │    │   block.css
-│    │   block.php
+│    │   block.js
 └───quote
       │   block.php
       │   block.css
-      │   block.php
+      │   block.js
 ```
 
 ### General Flags
