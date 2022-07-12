@@ -50,7 +50,7 @@ export default (responses) => {
       $className .= ' align' . $block['align'];
   }
 
-  
+  ${props}
   ?>
   
   <div id="<?php echo $block_id; ?>" class="<?php echo $className; ?>">
